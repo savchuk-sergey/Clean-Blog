@@ -10,7 +10,10 @@ const app = new express()
 app.set('view engine', 'ejs')
 mongoose.connect('mongodb+srv://l4mag:9621931ss@cluster0-06dow.mongodb.net/my_database', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 
-const PORT = 4000
+let PORT = process.env.PORT
+if(port == null || port == ""){
+    port = 4000
+}
 global.loggedIn = null
 global.username = null
 
