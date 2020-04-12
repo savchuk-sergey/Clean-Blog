@@ -17,14 +17,14 @@ module.exports = (req, res) =>{
                 else {
                     validationErrors = 'Incorrect password'
                     req.flash('validationErrors', validationErrors)
-                    req.flash('date', req.body)
+                    req.flash('data', req.body)
                     res.redirect('/auth/login')
                 }
             })
         } else{
             validationErrors = 'Incorrect username or password'
             req.flash('validationErrors', validationErrors)
-            req.flash('date', req.body)
+            req.flash('data', req.body)
             res.redirect('/auth/login')
         }
         usern = req.body.username

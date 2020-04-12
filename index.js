@@ -48,7 +48,7 @@ app.use("*", (req, res, next) =>{
     next()
 })
 
-app.listen(4000, ()=>{
+app.listen(PORT, ()=>{
     console.log('App listening on port ' + PORT)
 })
 
@@ -56,6 +56,9 @@ app.get('/', homeContoller)
 app.get('/post/:id', getPostContoller)
 app.get('/posts/new', authMiddleWare, newPostContoller)
 app.get('/about', aboutContoller)
+app.get('/create', (req, res) =>{
+    res.redirect('/posts/new')
+})
 app.get('/contact', contactContoller)
 app.get('/auth/register', newUserController)
 app.get('/auth/login', loginController)
